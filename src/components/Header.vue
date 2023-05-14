@@ -28,14 +28,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import { Button } from './shared';
 import { useOpplyStore } from '../store';
 
 const store = useOpplyStore();
-const route = useRoute();
-
-console.log(route.name)
 
 const headerNavLinks = [
     { name: 'Suppliers', to: '/' },

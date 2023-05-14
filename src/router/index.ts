@@ -1,6 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import { SuppliersPage, AuthPage, SupplierPage, QuotesPage } from '../pages';
-import { computed } from 'vue';
 
 const routes  = [
     {
@@ -29,16 +28,12 @@ export const router = createRouter({
     routes
 });
 
-const isAuthorized = computed(() => {
-    return !!localStorage.getItem('token');
-});
-
 router.beforeEach(async (to) => {
-    if (!isAuthorized.value && to.path !== '/auth') {
+    if (!localStorage.getItem('token') && to.path !== '/auth') {
         return { path: '/auth' };
     }
 
-    if (isAuthorized.value && to.path === '/auth') {
+    if (localStorage.getItem('token') && to.path === '/auth') {
         return { path: '/' };
     }
 });

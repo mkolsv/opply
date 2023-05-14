@@ -11,7 +11,6 @@ import { useOpplyStore } from '../../store';
 
 const store = useOpplyStore();
 const supplier = store.supplier;
-console.log(supplier.name)
 </script>
 
 <style scoped>

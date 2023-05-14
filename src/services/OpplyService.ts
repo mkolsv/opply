@@ -79,5 +79,6 @@ export class OpplyService {
 
     _saveToken(token: string) {
         localStorage.setItem('token', token);
+        this._addDefaultHeaders();
     }
 }
