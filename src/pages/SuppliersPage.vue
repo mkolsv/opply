@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h2 class="page__title">Suppliers</h2>
-        <div class="home-page__wrapper">
+        <div class="suppliers__wrapper">
             <SuppliersList />
 
             <Button v-if="!isAllLoaded" class="button__load-more" skin="primary" @click="loadMore">
@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue';
 import { useOpplyStore } from '../store';
-import { SuppliersList } from '../components/home';
+import { SuppliersList } from '../components/suppliers';
 import { Button } from '../components/shared';
 
 const store = useOpplyStore();
@@ -35,7 +35,7 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped>
-.home-page__wrapper {
+.suppliers__wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;

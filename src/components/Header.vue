@@ -4,14 +4,13 @@
 
         <nav v-if="store.isAuthorized">
             <ul class="nav__list">
-                <li class="nav__item">
-                    <router-link to="/">
-                        Supplier
-                    </router-link>
-                </li>
-                <li class="nav__item">
-                    <router-link to="/quotes">
-                        Quotes
+                <li
+                    class="nav__item"
+                    v-for="link in headerNavLinks"
+                    :key="link.name"
+                >
+                    <router-link class="nav__link" :to="link.to">
+                        {{ link.name }}
                     </router-link>
                 </li>
             </ul>
@@ -29,10 +28,19 @@
 </template>
 
 <script setup lang="ts">
-import Button from './shared/Button.vue';
+import { useRoute } from 'vue-router';
+import { Button } from './shared';
 import { useOpplyStore } from '../store';
 
 const store = useOpplyStore();
+const route = useRoute();
+
+console.log(route.name)
+
+const headerNavLinks = [
+    { name: 'Suppliers', to: '/' },
+    { name: 'Quotes', to: '/quotes' },
+];
 
 const logOut = () => {
     localStorage.removeItem('token');
@@ -44,6 +52,7 @@ const logOut = () => {
 <style scoped>
 .header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     background-color: var(--background-color-secondary);
     padding: 24px;
@@ -59,6 +68,14 @@ const logOut = () => {
     gap: 24px;
     padding-left: 0;
     list-style: none;
+}
+
+.nav__link {
+    color: var(--link-color-secondary);
+}
+
+.nav__link.router-link-active {
+    border-bottom: 1px solid var(--border-color-secondary);
 }
 
 .header__button--log-out {

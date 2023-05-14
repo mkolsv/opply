@@ -15,9 +15,8 @@ const suppliers = store.suppliers;
 
 <style scoped>
 .suppliers__list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 </style>

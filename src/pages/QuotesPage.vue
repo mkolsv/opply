@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
+import { computed, onBeforeMount } from 'vue';
 import { useOpplyStore } from '../store';
-import { computed, onBeforeMount, ref } from 'vue';
 import { QuotesList } from '../components/quotes';
 import { Button } from '../components/shared';
 
