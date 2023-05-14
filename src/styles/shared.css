@@ -24,7 +24,3 @@
     color: var(--text-color-error);
     padding-top: 12px;
 }
-
-.button__submit {
-    margin-top: 8px;
-}

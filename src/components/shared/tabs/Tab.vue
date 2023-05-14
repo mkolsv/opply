@@ -16,7 +16,3 @@ const props = defineProps({
 
 const selectedTitle = inject('selectedTitle');
 </script>
-
-<style scoped>
-
-</style>

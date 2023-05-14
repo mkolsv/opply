@@ -44,10 +44,6 @@ provide('selectedTitle', selectedTitle);
     gap: 12px;
 }
 
-.tabs__item {
-
-}
-
 .tabs__item-button--selected {
     background-color: var(--background-color-secondary);
     color: var(--text-color-secondary);

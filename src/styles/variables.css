@@ -9,6 +9,9 @@
     --link-color-secondary: #FFF;
     --link-color-hover: #535BF2;
 
+    /* Button */
+    --background-color-primary: #1A1A1A;
+
     /* Background */
     --background-color-secondary: #1A1A1A;
     --background-color-accent: #7A34FF;
