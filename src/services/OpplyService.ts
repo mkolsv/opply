@@ -25,7 +25,7 @@ export class OpplyService {
         try {
             const response = await this._httpClient.post(`${this._apiUrl}/api/v1/users/`, userData);
 
-            console.log('response', response.data);
+            this._saveToken(response.data.auth_token);
         } catch (error: any) {
             throw error.response.data;
         }

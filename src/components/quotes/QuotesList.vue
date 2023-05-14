@@ -1,6 +1,6 @@
 <template>
     <div class="quotes__list">
-        <Quote v-for="quote in quotes" :key="quote.id" :quote="quote" />
+        <Quote v-for="quote in quotes.list" :key="quote.id" :quote="quote" />
     </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="suppliers__list">
-        <Supplier v-for="supplier in suppliers" :key="supplier.id" :supplier="supplier" />
+        <Supplier v-for="supplier in suppliers.list" :key="supplier.id" :supplier="supplier" />
     </div>
 </template>
 

@@ -1,12 +1,18 @@
 import { defineStore } from 'pinia';
 import { opplyService } from '../services';
-import { Supplier } from '../types';
+import { Quote, Supplier } from '../types';
 
 export const useOpplyStore = defineStore('opply', {
     state: () => ({
-        suppliers: [] as Supplier[],
+        suppliers: {
+            count: null,
+            list: [] as Supplier[]
+        },
         supplier: {},
-        quotes: [],
+        quotes: {
+            count: null,
+            list: [] as Quote[]
+        },
         isAuthorized: !!localStorage.getItem('token')
     }),
 
@@ -22,9 +28,9 @@ export const useOpplyStore = defineStore('opply', {
         async fetchSuppliers(page: number) {
             const response = await opplyService.fetchSuppliers(page);
 
-            this.suppliers.push(...response.results);
+            this.suppliers.list.push(...response.results);
 
-            return response;
+            if (!this.suppliers.count) this.suppliers.count = response.count;
         },
 
         async fetchSupplier(id: number) {
@@ -34,9 +40,9 @@ export const useOpplyStore = defineStore('opply', {
         async fetchQuotes(page: number) {
             const response = await opplyService.fetchQuotes(page);
 
-            this.quotes.push(...response.results);
+            this.quotes.list.push(...response.results);
 
-            return response;
+            if (!this.quotes.count) this.quotes.count = response.count;
         }
     }
 });

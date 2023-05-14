@@ -37,4 +37,8 @@ router.beforeEach(async (to) => {
     if (!isAuthorized.value && to.path !== '/auth') {
         return { path: '/auth' };
     }
+
+    if (isAuthorized.value && to.path === '/auth') {
+        return { path: '/' };
+    }
 });

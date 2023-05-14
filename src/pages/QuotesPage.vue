@@ -20,21 +20,18 @@ import { Button } from '../components/shared';
 
 const store = useOpplyStore();
 
-const currentPage = ref(1);
-const quotesCount = ref(null);
+const currentPage = computed(() => Math.ceil(store.quotes.list.length / 10));
+const quotesCount = computed(() => store.quotes.count);
 const isAllLoaded = computed(() => currentPage.value >= Math.ceil(quotesCount.value / 10));
 
 const loadMore = async () => {
-    currentPage.value = currentPage.value + 1;
-    await store.fetchQuotes(currentPage.value);
+    await store.fetchQuotes(currentPage.value + 1);
 };
 
 onBeforeMount(async () => {
-    if (!!store.quotes.length) return;
+    if (!!store.quotes.list.length) return;
 
-    const response = await store.fetchQuotes(1);
-
-    quotesCount.value = response.count;
+    await store.fetchQuotes(1);
 });
 </script>
 

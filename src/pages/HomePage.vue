@@ -19,22 +19,18 @@ import { Button } from '../components/shared';
 
 const store = useOpplyStore();
 
-const currentPage = ref(1);
-const suppliersCount = ref(null);
+const currentPage = computed(() => Math.ceil(store.suppliers.list.length / 10));
+const suppliersCount = computed(() => store.suppliers.count);
 const isAllLoaded = computed(() => currentPage.value >= Math.ceil(suppliersCount.value / 10));
 
 const loadMore = async () => {
-    currentPage.value = currentPage.value + 1;
-    await store.fetchSuppliers(currentPage.value);
+    await store.fetchSuppliers(currentPage.value + 1);
 };
 
 onBeforeMount(async () => {
-    if (!!store.suppliers.length) return;
+    if (!!store.suppliers.list.length) return;
 
-
-    const response = await store.fetchSuppliers(currentPage.value);
-
-    suppliersCount.value = response.count;
+    await store.fetchSuppliers(1);
 });
 </script>
 
@@ -43,10 +39,5 @@ onBeforeMount(async () => {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.button__load-more {
-    margin-top: 16px;
-    margin-bottom: 16px;
 }
 </style>

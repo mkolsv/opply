@@ -29,3 +29,8 @@
     color: var(--text-color-error);
     padding-top: 12px;
 }
+
+.button__load-more {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
