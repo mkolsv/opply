@@ -30,7 +30,12 @@ const buttonClasses = computed(() => `button--${props.skin}`);
 
 <style scoped>
 .button--primary {
-    background-color: var(--background-color-primary);
+    background-color: var(--button-color-primary);
     color: var(--text-color-secondary);
+}
+
+.button--secondary {
+    background-color: var(--button-color-secondary);
+    color: var(--text-color-primary);
 }
 </style>

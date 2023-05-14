@@ -51,6 +51,16 @@ export class OpplyService {
         }
     }
 
+    async fetchSupplier(id: number) {
+        try {
+            const response = await this._httpClient.get(`${this._apiUrl}/api/v1/suppliers/${id}/`);
+
+            return response.data;
+        } catch (error: any) {
+            throw error.response.data;
+        }
+    }
+
     _addDefaultHeaders() {
         if (!localStorage.getItem('token')) return;
 

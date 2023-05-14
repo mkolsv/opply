@@ -1,14 +1,24 @@
 <template>
 <div class="supplier__card">
-    <a class="supplier__name">{{ supplier.name }}</a>
+    <h2 class="supplier__name">{{ supplier.name }}</h2>
     <p class="supplier__description">{{ supplier.description }}</p>
+    <Button skin="secondary" @click="openSupplier">
+        Show Details
+    </Button>
 </div>
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { Supplier } from '../../types';
+import { Button } from '../shared';
 
-defineProps<{ supplier: Supplier }>();
+const props = defineProps<{ supplier: Supplier }>();
+const router = useRouter();
+
+const openSupplier = () => {
+    router.push({ path: `/supplier/${props.supplier.id}` });
+};
 </script>
 
 <style scoped>
@@ -25,6 +35,7 @@ defineProps<{ supplier: Supplier }>();
 .supplier__name {
     color: var(--link-color-secondary);
     text-transform: uppercase;
+    font-size: 16px;
 }
 
 .supplier__description {

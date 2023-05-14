@@ -59,10 +59,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { Button, TextField } from '../shared';
 import { useOpplyStore } from '../../store';
 
 const store = useOpplyStore();
+const router = useRouter();
 
 const formData = ref({
     username: '',
@@ -90,10 +92,12 @@ const onError = (error) => {
     errors.value = { ...errors.value, ...error };
 };
 
-const submit = (event) => {
+const submit = async (event) => {
     errors.value.non_field_errors = [];
     event.preventDefault();
-    store.signUp(formData.value).catch(onError);
+    await store.signUp(formData.value).catch(onError);
+
+    await router.push('/');
 };
 </script>
 

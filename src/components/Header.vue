@@ -1,5 +1,5 @@
 <template>
-    <header class="header container">
+    <header class="header">
         <h1 class="header__title">Opply</h1>
     </header>
 </template>

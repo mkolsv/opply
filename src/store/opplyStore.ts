@@ -4,7 +4,8 @@ import { Supplier } from '../types';
 
 export const useOpplyStore = defineStore('opply', {
     state: () => ({
-        suppliers: [] as Supplier[]
+        suppliers: [] as Supplier[],
+        supplier: {}
     }),
 
     actions: {
@@ -19,9 +20,11 @@ export const useOpplyStore = defineStore('opply', {
         async fetchSuppliers(page: number) {
             const response = await opplyService.fetchSuppliers(page);
 
-            console.log(response.results)
-
             this.suppliers.push(...response.results);
+        },
+
+        async fetchSupplier(id: number) {
+            this.supplier = await opplyService.fetchSupplier(id);
         }
     }
 });

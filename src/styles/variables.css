@@ -10,7 +10,8 @@
     --link-color-hover: #535BF2;
 
     /* Button */
-    --background-color-primary: #1A1A1A;
+    --button-color-primary: #1A1A1A;
+    --button-color-secondary: #FFF;
 
     /* Background */
     --background-color-secondary: #1A1A1A;
