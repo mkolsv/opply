@@ -6,7 +6,8 @@ export const useOpplyStore = defineStore('opply', {
     state: () => ({
         suppliers: [] as Supplier[],
         supplier: {},
-        quotes: []
+        quotes: [],
+        isAuthorized: !!localStorage.getItem('token')
     }),
 
     actions: {
@@ -22,6 +23,8 @@ export const useOpplyStore = defineStore('opply', {
             const response = await opplyService.fetchSuppliers(page);
 
             this.suppliers.push(...response.results);
+
+            return response;
         },
 
         async fetchSupplier(id: number) {
@@ -32,6 +35,8 @@ export const useOpplyStore = defineStore('opply', {
             const response = await opplyService.fetchQuotes(page);
 
             this.quotes.push(...response.results);
+
+            return response;
         }
     }
 });

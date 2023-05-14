@@ -1,5 +1,7 @@
 <template>
-    <Quote v-for="quote in quotes" :key="quote.id" :quote="quote" />
+    <div class="quotes__list">
+        <Quote v-for="quote in quotes" :key="quote.id" :quote="quote" />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -13,5 +15,9 @@ const quotes = store.quotes;
 </script>
 
 <style scoped>
-
+.quotes__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
 </style>

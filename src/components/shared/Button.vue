@@ -3,7 +3,6 @@
             class="button"
             :class="buttonClasses"
             :type="props.type"
-            @click="$emit('click', $event)"
     >
         <slot />
     </button>

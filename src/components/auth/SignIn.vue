@@ -66,7 +66,7 @@ const submit = async (event) => {
     event.preventDefault();
     await store.signIn(formData.value).catch(onError);
 
-    await router.push('/');
+    router.push('/');
 };
 </script>
 

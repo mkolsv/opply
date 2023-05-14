@@ -1,5 +1,7 @@
 <template>
-    <Supplier v-for="supplier in suppliers" :key="supplier.id" :supplier="supplier" />
+    <div class="suppliers__list">
+        <Supplier v-for="supplier in suppliers" :key="supplier.id" :supplier="supplier" />
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -12,5 +14,10 @@ const suppliers = store.suppliers;
 </script>
 
 <style scoped>
-
+.suppliers__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
 </style>
