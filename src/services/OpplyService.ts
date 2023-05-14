@@ -9,7 +9,6 @@ export class OpplyService {
     _apiUrl: string
 
     static create({ httpClient, apiUrl }: OpplyServices) {
-        console.log(import.meta.env)
         return new OpplyService({
             httpClient,
             apiUrl
