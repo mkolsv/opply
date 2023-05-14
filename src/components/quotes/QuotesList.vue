@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 
-import { useOpplyStore } from '../../store';
+import { useOpplyStore } from '@/store';
 import Quote from './Quote.vue';
 
 const store = useOpplyStore();

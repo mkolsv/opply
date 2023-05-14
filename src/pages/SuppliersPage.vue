@@ -13,9 +13,9 @@
 
 <script setup lang="ts">
 import { computed, onBeforeMount } from 'vue';
-import { useOpplyStore } from '../store';
-import { SuppliersList } from '../components/suppliers';
-import { Button } from '../components/shared';
+import { useOpplyStore } from '@/store';
+import { SuppliersList } from '@/components/suppliers';
+import { Button } from '@/components/shared';
 
 const store = useOpplyStore();
 

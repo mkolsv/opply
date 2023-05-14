@@ -10,8 +10,8 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
-import { Supplier } from '../../types';
-import { Button } from '../shared';
+import { Supplier } from '@/types';
+import { Button } from '@/components/shared';
 
 const props = defineProps<{ supplier: Supplier }>();
 const router = useRouter();

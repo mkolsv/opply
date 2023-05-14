@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useOpplyStore } from '../../store';
+import { useOpplyStore } from '@/store';
 
 const store = useOpplyStore();
 const supplier = store.supplier;

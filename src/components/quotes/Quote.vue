@@ -19,7 +19,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Quote } from '../../types';
+import { Quote } from '@/types';
 
 const props = defineProps<{ quote: Quote }>();
 
