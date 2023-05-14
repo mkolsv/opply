@@ -1,27 +1,30 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { SuppliersPage, AuthPage, SupplierPage, QuotesPage } from '../pages';
 
 const routes  = [
     {
         path: '/',
-        component: SuppliersPage
+        component: loadComponent('SuppliersPage')
     },
 
     {
         path: '/auth',
-        component: AuthPage
+        component: loadComponent('AuthPage')
     },
 
     {
         path: '/quotes',
-        component: QuotesPage
+        component: loadComponent('QuotesPage')
     },
 
     {
         path: '/supplier/:id',
-        component: SupplierPage
+        component: loadComponent('SupplierPage')
     }
 ];
+
+function loadComponent(component: string) {
+    return () => import(`../pages/${component}.vue`);
+}
 
 export const router = createRouter({
     history: createWebHashHistory(),

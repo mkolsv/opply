@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { useOpplyStore } from '../../store';
+import { useOpplyStore } from '@/store';
 import Supplier from './Supplier.vue';
 
 const store = useOpplyStore();

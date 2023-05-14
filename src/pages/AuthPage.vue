@@ -12,6 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import { Tab, Tabs } from '../components/shared';
-import { SignIn, SignUp } from '../components/auth';
+import { Tab, Tabs } from '@/components/shared';
+import { SignIn, SignUp } from '@/components/auth';
 </script>

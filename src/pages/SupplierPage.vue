@@ -9,8 +9,8 @@
 <script setup lang="ts">
 import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import { useOpplyStore } from '../store';
-import { SupplierInfo } from '../components/supplier';
+import { useOpplyStore } from '@/store';
+import { SupplierInfo } from '@/components/supplier';
 
 const store = useOpplyStore();
 const route = useRoute();

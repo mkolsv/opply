@@ -1,6 +1,6 @@
 <template>
     <div class="form__wrapper">
-        <form class="form__auth" @submit="submit">
+        <form class="form__auth" @submit.prevent.stop="submit">
             <TextField
                 label="Username*"
                 placeholder="Username"
@@ -17,6 +17,7 @@
                 :errors="errors.password"
                 @update="(value) => onChange(value, 'password')"
             />
+
             <Button
                 class="button__submit"
                 skin="primary"
@@ -34,10 +35,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useOpplyStore } from '../../store';
-import { Button, TextField } from '../shared';
+import { useRouter } from 'vue-router';
+import { useOpplyStore } from '@/store';
+import { Button, TextField } from '@/components/shared';
 
 const store = useOpplyStore();
+const router = useRouter();
 
 const formData = ref({
     username: '',
@@ -59,12 +62,9 @@ const onError = (error: object) => {
     errors.value = { ...errors.value, ...error };
 };
 
-const submit = async (event: Event) => {
+const submit = async () => {
     errors.value.non_field_errors = [];
-    event.preventDefault();
-    await store.signIn(formData.value).catch(onError);
-
-    location.reload();
+    await store.signIn(formData.value).then(() => router.push('/')).catch(onError);
 };
 </script>
 

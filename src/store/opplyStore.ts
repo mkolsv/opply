@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
-import { opplyService } from '../services';
-import { Quote, Supplier } from '../types';
+import { opplyService } from '@/services';
+import { Quote, Supplier } from '@/types';
 
 export const useOpplyStore = defineStore('opply', {
     state: () => ({
@@ -17,12 +17,12 @@ export const useOpplyStore = defineStore('opply', {
     }),
 
     actions: {
-        async signUp(userData: Object) {
-            await opplyService.signUp(userData);
+        signUp(userData: Object) {
+            return opplyService.signUp(userData).then(({ auth_token }) => this.saveToken(auth_token));
         },
 
-        async signIn(userData: Object) {
-            await opplyService.signIn(userData);
+        signIn(userData: Object) {
+            return opplyService.signIn(userData).then(({ token }) => this.saveToken(token));
         },
 
         async fetchSuppliers(page: number) {
@@ -43,6 +43,12 @@ export const useOpplyStore = defineStore('opply', {
             this.quotes.list.push(...response.results);
 
             if (!this.quotes.count) this.quotes.count = response.count;
+        },
+
+        saveToken(token: string) {
+            localStorage.setItem('token', token);
+
+            this.isAuthorized = true;
         }
     }
 });

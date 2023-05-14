@@ -28,8 +28,8 @@
 </template>
 
 <script setup lang="ts">
-import { Button } from './shared';
-import { useOpplyStore } from '../store';
+import { Button } from '@/components/shared';
+import { useOpplyStore } from '@/store';
 
 const store = useOpplyStore();
 
