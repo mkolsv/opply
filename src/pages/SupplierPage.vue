@@ -1,5 +1,9 @@
 <template>
-    <SupplierInfo v-if="!isLoading" />
+    <div>
+        <h2 class="page__title">Info about supplier</h2>
+
+        <SupplierInfo v-if="!isLoading" />
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -4,7 +4,13 @@
         <p class="quote__amount"><span class="quote__label">Amount:</span>{{ quote.amount }} £</p>
         <p>
             <span class="quote__label">Supplier:</span>
-            <router-link v-if="quote.supplier_id" :to="`/supplier/${quote.supplier_id}`">{{ quote.supplier_id }}</router-link>
+            <router-link
+                class="quote__supplier-link"
+                v-if="quote.supplier_id"
+                :to="`/supplier/${quote.supplier_id}`"
+            >
+                {{ quote.supplier_id }}
+            </router-link>
             <span class="quote__supplier--unavailable" v-else>(not available)</span>
         </p>
         <p><span class="quote__label">Created:</span> {{ formattedData }}</p>
@@ -40,6 +46,11 @@ const formattedData = computed(() => {
 .quote__label {
     font-weight: 600;
     padding-right: 8px;
+}
+
+.quote__supplier-link {
+    color: var(--text-color-secondary);
+    text-decoration: underline;
 }
 
 .quote__supplier--unavailable {

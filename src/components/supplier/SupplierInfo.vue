@@ -1,8 +1,7 @@
 <template>
-    <section class="supplier__info container">
-        <p>Info about supplier:</p>
-        <h2 class="supplier__name">Name: {{ supplier.name }}</h2>
-        <p>Description: {{ supplier.description }}</p>
+    <section class="supplier-info__card container">
+        <h2 class="supplier-info__name">{{ supplier.name }}</h2>
+        <p>{{ supplier.description }}</p>
         <span>id: {{ supplier.id }}</span>
     </section>
 </template>
@@ -16,7 +15,19 @@ console.log(supplier.name)
 </script>
 
 <style scoped>
-.supplier__name {
+.supplier-info__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2px;
+    width: 300px;
+    padding: 12px;
+    background-color: var(--background-color-accent);
+    color: var(--text-color-secondary);
+    text-align: center;
+}
+
+.supplier-info__name {
     font-size: 20px;
 }
 </style>
