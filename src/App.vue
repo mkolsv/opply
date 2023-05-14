@@ -1,11 +1,10 @@
 <template>
-
+    <Header />
+    <router-view />
 </template>
 
 <script setup lang="ts">
-import { useOpplyStore } from "./store";
-
-const store = useOpplyStore();
+import Header from './components/Header.vue';
 </script>
 
 <style scoped>

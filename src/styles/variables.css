@@ -1,0 +1,24 @@
+:root {
+    /* Text */
+    --text-color-primary: #242424;
+    --text-color-secondary: #FFF;
+    --text-color-accent: #646CFF;
+    --text-color-error: #EF0D0D;
+
+    /* Link */
+    --link-color-primary: #646CFF;
+    --link-color-secondary: #FFF;
+    --link-color-hover: #535BF2;
+
+    /* Button */
+    --button-color-primary: #1A1A1A;
+    --button-color-secondary: #FFF;
+
+    /* Background */
+    --background-color-secondary: #1A1A1A;
+    --background-color-accent: #7A34FF;
+
+    /* Border */
+    --border-color-primary: #1A1A1A;
+    --border-color-secondary: #FFF;
+}
