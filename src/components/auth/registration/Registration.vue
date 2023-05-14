@@ -1,0 +1,98 @@
+<template>
+    <div class="form__wrapper">
+        <form class="form__auth" @submit="submit">
+            <TextField
+                label="Username*"
+                placeholder="Username"
+                :value="formData.username"
+                :errors="errors.username"
+                @update="(value) => onChange(value, 'username')"
+            />
+
+            <TextField
+                label="Password*"
+                placeholder="Password"
+                type="password"
+                :value="formData.password"
+                :errors="errors.password"
+                @update="(value) => onChange(value, 'password')"
+            />
+
+            <TextField
+                label="First Name"
+                placeholder="First Name"
+                :value="formData.firstName"
+                :errors="errors.firstName"
+                @update="(value) => onChange(value, 'firstName')"
+            />
+
+            <TextField
+                label="Last Name"
+                placeholder="Last Name"
+                :value="formData.lastName"
+                :errors="errors.lastName"
+                @update="(value) => onChange(value, 'lastName')"
+            />
+
+            <TextField
+                label="E-mail"
+                placeholder="E-mail"
+                :value="formData.email"
+                :errors="errors.email"
+                @update="(value) => onChange(value, 'email')"
+            />
+
+            <button class="button button__submit" type="submit">
+                Registration
+            </button>
+
+            <span class="form__error">
+                {{ errors.non_field_errors[0] }}
+            </span>
+        </form>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import { TextField } from '../../shared';
+import { useOpplyStore } from '../../../store';
+
+const store = useOpplyStore();
+
+const formData = ref({
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: ''
+});
+
+const errors = ref({
+    username: [],
+    password: [],
+    firstName: [],
+    lastName: [],
+    email: [],
+    non_field_errors: []
+});
+
+const onChange = (value, key) => {
+    errors.value[key] = [];
+    formData.value[key] = value;
+}
+
+const onError = (error) => {
+    errors.value = { ...errors.value, ...error };
+};
+
+const submit = (event) => {
+    errors.value.non_field_errors = [];
+    event.preventDefault();
+    store.signUp(formData.value).catch(onError);
+};
+</script>
+
+<style scoped>
+
+</style>
