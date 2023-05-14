@@ -4,6 +4,10 @@ export interface Supplier {
     description: string
 }
 
-export interface TextField {
-    type: string
+export interface Quote {
+    id: number,
+    supplier_id: number,
+    title: string,
+    amount: string,
+    created: string
 }

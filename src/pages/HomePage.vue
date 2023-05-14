@@ -1,6 +1,9 @@
 <template>
-    <div class="home-page__wrapper container">
-        <SuppliersList />
+    <div class="container">
+        <h2 class="page__title">Suppliers</h2>
+        <div class="home-page__wrapper">
+            <SuppliersList />
+        </div>
     </div>
 </template>
 
@@ -12,6 +15,8 @@ import { SuppliersList } from '../components/home';
 const store = useOpplyStore();
 
 onBeforeMount(async () => {
+    if (!!store.suppliers.length) return;
+
     await store.fetchSuppliers(1);
 });
 </script>

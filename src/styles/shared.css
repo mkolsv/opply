@@ -6,6 +6,11 @@
     margin-right: auto;
 }
 
+.page__title {
+    text-align: center;
+    color: var(--text-color-accent);
+}
+
 .form__wrapper {
     display: flex;
     justify-content: center;

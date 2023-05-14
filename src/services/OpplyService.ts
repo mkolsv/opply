@@ -61,6 +61,16 @@ export class OpplyService {
         }
     }
 
+    async fetchQuotes(page: number) {
+        try {
+            const response = await this._httpClient.get(`${this._apiUrl}/api/v1/quotes/`, { params: { page } });
+
+            return response.data;
+        } catch (error: any) {
+            throw error.response.data;
+        }
+    }
+
     _addDefaultHeaders() {
         if (!localStorage.getItem('token')) return;
 

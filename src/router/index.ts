@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { HomePage, AuthPage, SupplierPage } from '../pages';
+import { HomePage, AuthPage, SupplierPage, QuotesPage } from '../pages';
 import { computed } from 'vue';
 
 const routes  = [
@@ -11,6 +11,11 @@ const routes  = [
     {
         path: '/auth',
         component: AuthPage
+    },
+
+    {
+        path: '/quotes',
+        component: QuotesPage
     },
 
     {
