@@ -6,8 +6,8 @@
 
 <script setup lang="ts">
 import { onBeforeMount } from 'vue';
-import { useOpplyStore } from '../../store';
-import SuppliersList from './SuppliersList.vue';
+import { useOpplyStore } from '../store';
+import { SuppliersList } from '../components/home';
 
 const store = useOpplyStore();
 

@@ -34,8 +34,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useOpplyStore } from '../../../store';
-import { Button, TextField } from '../../shared';
+import { useOpplyStore } from '../../store';
+import { Button, TextField } from '../shared';
 
 const store = useOpplyStore();
 

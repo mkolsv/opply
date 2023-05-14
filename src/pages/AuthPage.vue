@@ -12,8 +12,6 @@
 </template>
 
 <script setup lang="ts">
-import Tabs from '../shared/tabs/Tabs.vue';
-import Tab from '../shared/tabs/Tab.vue';
-import { SignIn } from './signIn';
-import { SignUp } from './signUp';
+import { Tab, Tabs } from '../components/shared';
+import { SignIn, SignUp } from '../components/auth';
 </script>
