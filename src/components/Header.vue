@@ -2,7 +2,7 @@
     <header class="header">
         <h1 class="header__title">Opply</h1>
 
-        <nav v-if="store.isAuthorized" class="nav">
+        <nav v-if="store.isAuthorized">
             <ul class="nav__list">
                 <li class="nav__item">
                     <router-link to="/">
@@ -58,6 +58,7 @@ const logOut = () => {
     display: flex;
     gap: 24px;
     padding-left: 0;
+    list-style: none;
 }
 
 .header__button--log-out {

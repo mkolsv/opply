@@ -42,6 +42,7 @@ provide('selectedTitle', selectedTitle);
     display: flex;
     justify-content: center;
     gap: 12px;
+    list-style: none;
 }
 
 .tabs__item-button--selected {
