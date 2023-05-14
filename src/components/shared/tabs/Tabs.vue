@@ -23,15 +23,9 @@
 <script setup lang="ts">
 import { useSlots, ref , provide } from 'vue';
 
-defineProps({
-    tabs: {
-        type: Array,
-        required: true
-    }
-});
-
 const slots = useSlots();
-const tabTitles = ref(slots.default().map(tab => tab.props.title));
+const defaultSlot = slots.default?.() ?? [];
+const tabTitles = ref(defaultSlot ? defaultSlot.map(tab => tab.props?.title) : []);
 const selectedTitle = ref(tabTitles.value[0]);
 
 provide('selectedTitle', selectedTitle);
