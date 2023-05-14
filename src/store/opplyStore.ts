@@ -5,12 +5,12 @@ import { Quote, Supplier } from '../types';
 export const useOpplyStore = defineStore('opply', {
     state: () => ({
         suppliers: {
-            count: null,
+            count: 0,
             list: [] as Supplier[]
         },
-        supplier: {},
+        supplier: {} as Supplier,
         quotes: {
-            count: null,
+            count: 0,
             list: [] as Quote[]
         },
         isAuthorized: !!localStorage.getItem('token')

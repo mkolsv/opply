@@ -8,7 +8,7 @@
             :maxlength="maxlength"
             :name="label"
             :placeholder="placeholder"
-            @input="$emit('update', $event.target.value)"
+            @input="$emit('update', ($event.target as HTMLInputElement).value)"
         >
         <span v-if="showError" class="form__input-error">
             {{ errors[0] }}

@@ -18,7 +18,7 @@ const route = useRoute();
 const isLoading = ref(true);
 
 onBeforeMount(async () => {
-    await store.fetchSupplier(route.params.id);
+    await store.fetchSupplier(Number(route.params.id));
     isLoading.value = false;
 });
 </script>
