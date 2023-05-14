@@ -17,9 +17,13 @@
                 :errors="errors.password"
                 @update="(value) => onChange(value, 'password')"
             />
-            <button class="button button__submit" type="submit">
+            <Button
+                class="button__submit"
+                skin="primary"
+                type="submit"
+            >
                 Sign In
-            </button>
+            </Button>
 
             <span class="form__error">
                 {{ errors.non_field_errors[0] }}
@@ -31,7 +35,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useOpplyStore } from '../../../store';
-import TextField from "../../shared/TextField.vue";
+import { Button, TextField } from '../../shared';
 
 const store = useOpplyStore();
 
@@ -61,3 +65,9 @@ const submit = (event) => {
     store.signIn(formData.value).catch(onError);
 };
 </script>
+
+<style scoped>
+.button__submit {
+    margin-top: 8px;
+}
+</style>

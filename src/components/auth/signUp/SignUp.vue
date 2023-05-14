@@ -42,9 +42,13 @@
                 @update="(value) => onChange(value, 'email')"
             />
 
-            <button class="button button__submit" type="submit">
-                Registration
-            </button>
+            <Button
+                class="button__submit"
+                skin="primary"
+                type="submit"
+            >
+                Sign Up
+            </Button>
 
             <span class="form__error">
                 {{ errors.non_field_errors[0] }}
@@ -55,7 +59,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { TextField } from '../../shared';
+import { Button, TextField } from '../../shared';
 import { useOpplyStore } from '../../../store';
 
 const store = useOpplyStore();
@@ -94,5 +98,7 @@ const submit = (event) => {
 </script>
 
 <style scoped>
-
+.button__submit {
+    margin-top: 8px;
+}
 </style>
