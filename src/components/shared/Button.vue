@@ -1,0 +1,36 @@
+<template>
+    <button
+            class="button"
+            :class="buttonClasses"
+            :type="props.type"
+            @click="$emit('click', $event)"
+    >
+        <slot />
+    </button>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+
+const props = defineProps({
+    skin: {
+        type: String,
+        required: true
+    },
+
+    type: {
+        type: String,
+        required: false,
+        default: 'button'
+    }
+});
+
+const buttonClasses = computed(() => `button--${props.skin}`);
+</script>
+
+<style scoped>
+.button--primary {
+    background-color: var(--background-color-primary);
+    color: var(--text-color-secondary);
+}
+</style>
